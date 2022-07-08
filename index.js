@@ -1,29 +1,23 @@
 import express from "express";
 import mongoose from 'mongoose';
-// import Cors from 'cors'
+import Cors from 'cors'
 import Cards from './models/dbCards.js'
-
-// flow of making backend application.
-// App config
-// middlewares
-// DB config
-// Api endpoints
-// Listener
+import url from './url.js'
 
 // App configuration
 const app = express();
 const port = process.env.PORT||5000
-const connection_url = `mongodb+srv://bubble:bubble@cluster0.pl3tyvp.mongodb.net/?retryWrites=true&w=majority`
+const connection_url = url
 
 // adding middleware
-app.use(express.json())
-// app.use(Cors);
+app.use(express.json());
+app.use(Cors());
 
 // DB configuration
 mongoose.connect(connection_url, {
-    useNewUrlParser:true,
+    // useNewUrlParser:true,
     // useCreateIndex:true,
-    useUnifiedTopology:true,
+    // useUnifiedTopology:true,
 })
 
 // API endpoints
